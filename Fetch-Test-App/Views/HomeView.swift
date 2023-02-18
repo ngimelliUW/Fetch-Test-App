@@ -46,7 +46,7 @@ struct HomeView: View {
                         .foregroundColor(selectedFilter == 0 ? .primary : .gray.opacity(0.1))
                     Text("View All")
                         .bold()
-                        .foregroundColor(selectedFilter == 0 ? .white : .black)
+                        .foregroundColor(selectedFilter == 0 ? Color("whiteBlack") : .primary)
                 }
                 .onTapGesture { selectedFilter = 0 }
 
@@ -56,7 +56,7 @@ struct HomeView: View {
                             .frame(width: 60, height: 30)
                             .foregroundColor(selectedFilter == id ? .primary : .gray.opacity(0.1))
                         Text("List \(id)")
-                            .foregroundColor(selectedFilter == id ? .white : .black)
+                            .foregroundColor(selectedFilter == id ? Color("whiteBlack") : .primary)
                     }
                     .onTapGesture { selectedFilter = id }
                 }
