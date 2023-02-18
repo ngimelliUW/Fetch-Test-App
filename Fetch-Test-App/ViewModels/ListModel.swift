@@ -8,8 +8,8 @@
 import Foundation
 
 class ListModel: ObservableObject {
-    let urlStr: String = "https://fetch-hiring.s3.amazonaws.com/hiring.json"
     @Published var listItems: [ListItem] = [ListItem]()
+    let urlStr: String = "https://fetch-hiring.s3.amazonaws.com/hiring.json"
 
     init() {
         fetchListItems()
@@ -22,6 +22,7 @@ class ListModel: ObservableObject {
                     DispatchQueue.main.async {
                         do {
                             self.listItems = try JSONDecoder().decode([ListItem].self, from: data)
+                            self.filterEmptyNames()
                         } catch let error {
                             print(error)
                         }
@@ -29,5 +30,9 @@ class ListModel: ObservableObject {
                 }
             }.resume()
         }
+    }
+    
+    private func filterEmptyNames() {
+        self.listItems = listItems.filter({$0.name != nil && !$0.name!.isEmpty})
     }
 }
