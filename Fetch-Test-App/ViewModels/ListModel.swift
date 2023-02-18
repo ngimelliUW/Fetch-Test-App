@@ -9,12 +9,14 @@ import Foundation
 
 class ListModel: ObservableObject {
     @Published var listItems: [ListItem] = [ListItem]()
+    var listIds: [Int] = []
+    
     let urlStr: String = "https://fetch-hiring.s3.amazonaws.com/hiring.json"
 
     init() {
         fetchListItems()
     }
-
+    
     private func fetchListItems() {
         if let url = URL(string: urlStr) {
             URLSession.shared.dataTask(with: url) { data, _, error in
@@ -24,6 +26,7 @@ class ListModel: ObservableObject {
                             self.listItems = try JSONDecoder().decode([ListItem].self, from: data)
                             self.filterEmptyNames()
                             self.sortListItems()
+                            self.initListIds()
                         } catch let error {
                             print(error)
                         }
@@ -45,5 +48,13 @@ class ListModel: ObservableObject {
                 return $0.id < $1.id // name always corresponds to "Item \(id)", thus this line sorts by name
             }
         })
+    }
+    
+    private func initListIds() {
+        for item in self.listItems {
+            if !self.listIds.contains(item.listId) {
+                self.listIds.append(item.listId)
+            }
+        }
     }
 }
