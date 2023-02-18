@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ListItem: Codable {
+struct ListItem: Codable, Identifiable {
     var id: Int
     var listId: Int
     var name: String?

@@ -9,7 +9,7 @@ import Foundation
 
 class ListModel: ObservableObject {
     let urlStr: String = "https://fetch-hiring.s3.amazonaws.com/hiring.json"
-    var listItems: [ListItem] = Array()
+    @Published var listItems: [ListItem] = [ListItem]()
 
     init() {
         fetchListItems()
@@ -17,15 +17,14 @@ class ListModel: ObservableObject {
 
     private func fetchListItems() {
         if let url = URL(string: urlStr) {
-            URLSession.shared.dataTask(with: url) { [self] data, _, error in
+            URLSession.shared.dataTask(with: url) { data, _, error in
                 if let data = data {
-                    do {
-                        self.listItems = try JSONDecoder().decode([ListItem].self, from: data)
-                        for listItem in listItems {
-                            print(listItem.toString())
+                    DispatchQueue.main.async {
+                        do {
+                            self.listItems = try JSONDecoder().decode([ListItem].self, from: data)
+                        } catch let error {
+                            print(error)
                         }
-                    } catch let error {
-                        print(error)
                     }
                 }
             }.resume()
