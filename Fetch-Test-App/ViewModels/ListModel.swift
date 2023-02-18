@@ -17,6 +17,14 @@ class ListModel: ObservableObject {
         fetchListItems()
     }
     
+    func getListItemsById(id: Int) -> [ListItem] {
+        if id == 0 {
+            return listItems
+        }
+        
+        return listItems.filter({$0.listId == id})
+    }
+    
     private func fetchListItems() {
         if let url = URL(string: urlStr) {
             URLSession.shared.dataTask(with: url) { data, _, error in

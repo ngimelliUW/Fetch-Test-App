@@ -16,7 +16,7 @@ struct HomeView: View {
             navBar
             filterBar
             List {
-                ForEach(listModel.listItems) { item in
+                ForEach(listModel.getListItemsById(id: selectedFilter)) { item in
                     ListItemView(item: item)
                 }
                 .listRowSeparator(.hidden)
