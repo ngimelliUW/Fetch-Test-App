@@ -15,6 +15,7 @@ struct HomeView: View {
         VStack {
             navBar
             filterBar
+            
             List {
                 ForEach(listModel.getListItemsById(id: selectedFilter)) { item in
                     ListItemView(item: item)
@@ -26,6 +27,7 @@ struct HomeView: View {
         }
     }
 
+    // App title, plus space for navbar buttons if we wish to add them in the future
     private var navBar: some View {
         HStack {
             Text("Fetch Items App")
@@ -37,6 +39,8 @@ struct HomeView: View {
         .padding()
     }
 
+    // a bar of capsules; one capsule per listId that allows the user to filter which listId group is showing
+    // also has a View All capsule
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
@@ -48,8 +52,9 @@ struct HomeView: View {
                         .bold()
                         .foregroundColor(selectedFilter == 0 ? Color("whiteBlack") : .primary)
                 }
-                .onTapGesture { selectedFilter = 0 }
+                .onTapGesture { selectedFilter = 0 } // 0 corresponds to "view all"
 
+                // iterate through each possible listId and provide a filter capsule for it
                 ForEach(listModel.listIds, id: \.self) { id in
                     ZStack {
                         Capsule()

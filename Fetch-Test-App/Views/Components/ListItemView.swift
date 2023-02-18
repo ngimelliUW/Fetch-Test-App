@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// A struct for this subview allows further development of the view to be much easier and more organized.
 struct ListItemView: View {
     var item: ListItem
     
