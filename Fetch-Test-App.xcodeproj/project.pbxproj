@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB1F5F6429A1546F0016919B /* Fetch_Test_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1F5F6329A1546F0016919B /* Fetch_Test_AppApp.swift */; };
+		BB1F5F6429A1546F0016919B /* Fetch_Test_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1F5F6329A1546F0016919B /* Fetch_Test_App.swift */; };
 		BB1F5F6629A1546F0016919B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1F5F6529A1546F0016919B /* ContentView.swift */; };
 		BB1F5F6829A154710016919B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1F5F6729A154710016919B /* Assets.xcassets */; };
 		BB1F5F6B29A154710016919B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1F5F6A29A154710016919B /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		BB1F5F6029A1546F0016919B /* Fetch-Test-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fetch-Test-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB1F5F6329A1546F0016919B /* Fetch_Test_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Test_AppApp.swift; sourceTree = "<group>"; };
+		BB1F5F6329A1546F0016919B /* Fetch_Test_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_Test_App.swift; sourceTree = "<group>"; };
 		BB1F5F6529A1546F0016919B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BB1F5F6729A154710016919B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1F5F6A29A154710016919B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		BB1F5F6229A1546F0016919B /* Fetch-Test-App */ = {
 			isa = PBXGroup;
 			children = (
-				BB1F5F6329A1546F0016919B /* Fetch_Test_AppApp.swift */,
+				BB1F5F6329A1546F0016919B /* Fetch_Test_App.swift */,
 				BB1F5F6529A1546F0016919B /* ContentView.swift */,
 				BB1F5F6729A154710016919B /* Assets.xcassets */,
 				BB1F5F6929A154710016919B /* Preview Content */,
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB1F5F6629A1546F0016919B /* ContentView.swift in Sources */,
-				BB1F5F6429A1546F0016919B /* Fetch_Test_AppApp.swift in Sources */,
+				BB1F5F6429A1546F0016919B /* Fetch_Test_App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
