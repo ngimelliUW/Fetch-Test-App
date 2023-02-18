@@ -14,22 +14,25 @@ struct HomeView: View {
         VStack {
             navBar
             List {
-                ForEach(listModel.listItems) { listItem in
-                    Text(listItem.toString())
+                ForEach(listModel.listItems) { item in
+                    ListItemView(item: item)
                 }
+                .listRowSeparator(.hidden)
             }
+            .listStyle(PlainListStyle())
+            .padding(.leading)
         }
-        .padding()
     }
-    
+
     private var navBar: some View {
         HStack {
             Text("Fetch Items App")
                 .font(.largeTitle)
                 .bold()
-            
+
             Spacer()
         }
+        .padding()
     }
 }
 
