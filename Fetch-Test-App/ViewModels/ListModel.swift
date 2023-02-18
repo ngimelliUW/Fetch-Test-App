@@ -23,6 +23,7 @@ class ListModel: ObservableObject {
                         do {
                             self.listItems = try JSONDecoder().decode([ListItem].self, from: data)
                             self.filterEmptyNames()
+                            self.sortListItems()
                         } catch let error {
                             print(error)
                         }
@@ -34,5 +35,15 @@ class ListModel: ObservableObject {
     
     private func filterEmptyNames() {
         self.listItems = listItems.filter({$0.name != nil && !$0.name!.isEmpty})
+    }
+        
+    private func sortListItems() {
+        self.listItems = listItems.sorted(by: {
+            if $0.listId != $1.listId {
+                return $0.listId < $1.listId
+            } else {
+                return $0.id < $1.id // name always corresponds to "Item \(id)", thus this line sorts by name
+            }
+        })
     }
 }
