@@ -15,7 +15,7 @@ struct ListItemView: View {
     
     var body: some View {
         ZStack {
-            Rectangle().cornerRadius(12).foregroundColor(.gray.opacity(0.1))
+            Rectangle().cornerRadius(12).foregroundColor(Color("primaryContentBackground"))
             
             HStack {
                 Text(item.name ?? "")

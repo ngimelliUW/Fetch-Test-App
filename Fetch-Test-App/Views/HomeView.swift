@@ -43,7 +43,7 @@ struct HomeView: View {
                 ZStack {
                     Capsule()
                         .frame(width: 80, height: 30)
-                        .foregroundColor(selectedFilter == 0 ? .primary : .gray.opacity(0.1))
+                        .foregroundColor(selectedFilter == 0 ? .primary : Color("primaryContentBackground"))
                     Text("View All")
                         .bold()
                         .foregroundColor(selectedFilter == 0 ? Color("whiteBlack") : .primary)
@@ -54,7 +54,7 @@ struct HomeView: View {
                     ZStack {
                         Capsule()
                             .frame(width: 60, height: 30)
-                            .foregroundColor(selectedFilter == id ? .primary : .gray.opacity(0.1))
+                            .foregroundColor(selectedFilter == id ? .primary : Color("primaryContentBackground"))
                         Text("List \(id)")
                             .foregroundColor(selectedFilter == id ? Color("whiteBlack") : .primary)
                     }
