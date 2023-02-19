@@ -61,7 +61,6 @@ class ListModel: ObservableObject {
 
     /**
      Sorts list items first based on their listId then based on their name.
-     Note:
      */
     private func sortListItems() {
         listItems = listItems.sorted(by: {
@@ -71,8 +70,9 @@ class ListModel: ObservableObject {
                 // strictly following the specification, one could sort by string comparison:
                 // return $0.name ?? "" < $1.name ?? ""
 
-                // sorting by item id's allows items to be "sorted by name", but have lower number items come first:
-                return $0.id < $1.id // name always corresponds to "Item \(id)", thus this line sorts by name
+                // sorting by item id's allows items to be "sorted by name",
+                //  but have lower number items come first, which to me makes more sense:
+                return $0.id < $1.id
             }
         })
     }
