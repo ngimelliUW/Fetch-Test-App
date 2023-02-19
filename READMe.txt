@@ -1,0 +1,12 @@
+The Fetch Items App
+
+Features of the app:
+1) Fetches items list from given API
+2) Filters out items with null/empty names
+3) Sorts items first by listId (so they are grouped as such), then by name
+4) Displays list on the screen
+5) EXTRA FEATURE: Filters at the top of the screen that allow the user to see all list items, or just one particular list
+
+IMPORTANT NOTE: The specification said to first sort by listId, then name. Sorting by name (i.e. with string comparison) results in some items of higher number being shown before items of lower number (i.e. item 1, then item 10, then item 4).
+I have left this implementation commented out in ListModel.swift, and instead implemented this sort by id. This makes more sense to me, as items would first be grouped by listId, and then appear in numerical order.
+I am not sure if this is what was desired by the app specifications, or if string comparison was desired. Nevertheless, the latter implementation is there, commented out.
